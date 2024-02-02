@@ -1,0 +1,14 @@
+# 1. Database Collections:
+For the StudySync application, the following non-relational database collections are envisioned:
+
+# Users:
+Fields: UserID, Username, Email, Password, ProfileInfo, StudyGroups (Array)
+
+# StudyGroups:
+Fields: GroupID, GroupName, Description, Members (Array), Schedule, ChatHistory (Array)
+
+# ChatMessages:
+Fields: MessageID, SenderID, ReceiverID, GroupID, Timestamp, MessageContent
+
+
+These collections are designed to manage user profiles, study groups, and chat functionalities seamlessly.
