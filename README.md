@@ -38,7 +38,7 @@ StudySync is an innovative Android application aimed at transforming collaborati
 
 ## Contributors
 
-- [Your Name]
+- Naman Verma
 
 ## License
 
