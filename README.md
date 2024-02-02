@@ -1,19 +1,21 @@
-# StudySync - A Collaborative Learning Android App
+# StudySync - A Collaborative Learning Android Application
 
-[![GitHub license](https://img.shields.io/github/license/YourUsername/StudySync)](https://github.com/YourUsername/StudySync/blob/main/LICENSE.md)
-[![GitHub contributors](https://img.shields.io/github/contributors/YourUsername/StudySync)](https://github.com/YourUsername/StudySync/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/YourUsername/StudySync)](https://github.com/YourUsername/StudySync/stargazers)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.5.21-orange.svg)](https://kotlinlang.org/)
+[![Android Studio](https://img.shields.io/badge/Android%20Studio-4.2.2-green.svg)](https://developer.android.com/studio)
+[![Firebase](https://img.shields.io/badge/Firebase-9.0.0-yellow.svg)](https://firebase.google.com/)
+[![Material Design](https://img.shields.io/badge/Material%20Design-2.0.0-red.svg)](https://material.io/design)
 
-StudySync is an innovative Android application aimed at transforming collaborative learning experiences. The app seamlessly integrates Firebase for user authentication, real-time data management, and dynamic collaboration within study groups.
+## Overview
+
+StudySync is an innovative Android application aimed at transforming collaborative learning experiences. It seamlessly integrates Firebase for user authentication, real-time data management, and fosters dynamic collaboration within study groups.
 
 ## Technologies Implemented
 
-- ![Kotlin](https://img.shields.io/badge/Kotlin-1.5.31-orange)
-- ![Android Studio](https://img.shields.io/badge/Android%20Studio-4.1.3-green)
-- ![Firebase](https://img.shields.io/badge/Firebase-9.0.2-yellow)
-  - Authentication
-  - Realtime Database
-- ![Material Design](https://img.shields.io/badge/Material%20Design-2.2.0-blue)
+- ![Kotlin](https://img.shields.io/badge/Kotlin-1.5.21-orange.svg)
+- ![Android Studio](https://img.shields.io/badge/Android%20Studio-4.2.2-green.svg)
+- ![Firebase](https://img.shields.io/badge/Firebase-9.0.0-yellow.svg)
+- ![Material Design](https://img.shields.io/badge/Material%20Design-2.0.0-red.svg)
 
 ## Project Structure
 
@@ -36,17 +38,17 @@ StudySync is an innovative Android application aimed at transforming collaborati
 
 ## Contributors
 
-- [Your Name](https://github.com/YourUsername)
+- [Your Name]
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/YourUsername/StudySync/blob/main/LICENSE.md). See the [LICENSE.md](https://github.com/YourUsername/StudySync/blob/main/LICENSE.md) file for details.
+This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments
 
 Thanks to the Android and Firebase communities for their invaluable resources.
 
-### .gitignore
+**.gitignore:**
 
 ```gitignore
 # Android Studio
@@ -61,4 +63,4 @@ Thanks to the Android and Firebase communities for their invaluable resources.
 /google-services.json
 ```
 
-**Note:** Adjust the version numbers in the dependencies and other parts according to the latest versions available.
+*Note: Adjust the version numbers in the dependencies and other parts according to the latest versions available.*
