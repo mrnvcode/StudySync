@@ -6,6 +6,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="facebook_app_id">784875983673007</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -41,6 +42,7 @@
         libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
         sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
+    vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+</string>
+    <string name="facebook_client_token">6009a3cebb430f4560bb84013b7e0661</string>
 </resources>
