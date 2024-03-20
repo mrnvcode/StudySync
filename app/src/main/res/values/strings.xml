@@ -7,6 +7,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="facebook_app_id">784875983673007</string>
+    <string name="default_web_client_id" translatable="false">460308010301-if5rvogfh7absssle2nv7b3idmlk8bqo.apps.googleusercontent.com</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
