@@ -25,9 +25,13 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
+    // Firebase Auth instance
     private lateinit var auth: FirebaseAuth
+    // Google Sign In Client
     private lateinit var googleSignInClient: GoogleSignInClient
+    // Request code for Google Sign In
     private val RC_SIGN_IN = 9001
+    // CallbackManager for Facebook Login
     private lateinit var callbackManager: CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,6 +90,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Function to log in user with email and password
     private fun loginUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -101,11 +106,13 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
+    // Function to initiate Google Sign In
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
+    // Function to initiate Facebook Sign In
     private fun signInWithFacebook() {
         LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
         LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
@@ -124,23 +131,23 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
+    // Function to handle Facebook access token and sign in
     private fun handleFacebookAccessToken(token: com.facebook.AccessToken) {
         val credential = FacebookAuthProvider.getCredential(token.token)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("FacebookSignIn", "signInWithCredential:success")
                     val user = auth.currentUser
                     navigateToProfileInformationActivity()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("FacebookSignIn", "signInWithCredential:failure", task.exception)
                     showErrorDialog(this,"Facebook sign in failed.")
                 }
             }
     }
 
+    // Function to handle Google Sign In result
     private fun handleGoogleSignInResult(data: Intent?) {
         val task = GoogleSignIn.getSignedInAccountFromIntent(data)
         try {
@@ -149,55 +156,48 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!)
             }
         } catch (e: ApiException) {
-            Log.w("GoogleSignIn", "Google sign in failed", e)
             showErrorDialog(this, "Google sign in failed.")
         }
     }
 
+    // Function to authenticate with Firebase using Google credentials
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("GoogleSignIn", "signInWithCredential:success")
                     val user = auth.currentUser
                     navigateToProfileInformationActivity()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("GoogleSignIn", "signInWithCredential:failure", task.exception)
                     showErrorDialog(this,"Google sign in failed.")
                 }
             }
     }
 
+    // Function to navigate to Dashboard Activity
     private fun navigateToDashboard() {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish() // Close the LoginActivity so that the user cannot go back to it after logging in
     }
 
+    // Function to navigate to Profile Information Activity
     private fun navigateToProfileInformationActivity() {
         val intent = Intent(this, ProfileInformationActivity::class.java)
         startActivity(intent)
         finish() // Close the LoginActivity so that the user cannot go back to it after logging in
     }
 
+    // Function to display error dialog
     private fun showErrorDialog(context: Context, errorMessage: String) {
-        // Create an AlertDialog Builder
         val builder = AlertDialog.Builder(context)
-
-        // Set the dialog title and message
         builder.setTitle("Error")
         builder.setMessage(errorMessage)
-
-        // Set a button for the user to dismiss the dialog
         builder.setPositiveButton("OK") { dialog, _ ->
-            // Dismiss the dialog when the user clicks OK
             dialog.dismiss()
         }
-
-        // Create and show the AlertDialog
         val dialog = builder.create()
         dialog.show()
     }

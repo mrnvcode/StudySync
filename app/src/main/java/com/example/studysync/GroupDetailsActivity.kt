@@ -9,12 +9,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class GroupDetailsActivity : AppCompatActivity() {
 
+    // Firebase Firestore instance
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     // Footer icons
-    private lateinit var dashboardIcon: ImageButton // Dashboard
-    private lateinit var plusIcon: ImageButton // Create Groups
-    private lateinit var profileIcon: ImageButton // User Profile
+    private lateinit var dashboardIcon: ImageButton
+    private lateinit var plusIcon: ImageButton
+    private lateinit var profileIcon: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +30,10 @@ class GroupDetailsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.groupNameTextView).text = "Group Name: $groupName"
         findViewById<TextView>(R.id.topicsTextView).text = "Topics: $topics"
 
-        // Fetch longDescription from Firestore based on group name
+        // Fetch long description from Firestore based on group name
         fetchLongDescription(groupName)
 
-        // Fetch Deadline from Firestore based on group name
+        // Fetch deadline from Firestore based on group name
         fetchDeadline(groupName)
 
         // Footer icons navigation initialization
@@ -53,13 +54,14 @@ class GroupDetailsActivity : AppCompatActivity() {
             startActivity(Intent(this, CreateGroupActivity::class.java))
         }
 
-        // - Create Group Navigation
+        // - User Profile Navigation
         profileIcon.setOnClickListener {
-            // Start CreateGroupActivity
+            // Start UserProfileActivity
             startActivity(Intent(this, UserProfileActivity::class.java))
         }
     }
 
+    // Fetch deadline from Firestore based on group name
     private fun fetchDeadline(groupName: String?) {
         if (groupName != null) {
             firestore.collection("groups")
@@ -69,9 +71,10 @@ class GroupDetailsActivity : AppCompatActivity() {
                     if (!documents.isEmpty) {
                         val deadline = documents.documents[0].getString("deadline")
                         if (deadline != null) {
+                            // Display deadline in TextView
                             findViewById<TextView>(R.id.deadlineTextView).text = "Deadline: $deadline"
                         } else {
-                            // Handle case where long description is null
+                            // Handle case where deadline is null
                             findViewById<TextView>(R.id.deadlineTextView).text = "Deadline not available"
                         }
                     } else {
@@ -80,12 +83,13 @@ class GroupDetailsActivity : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener { exception ->
-                    // Handle failure to fetch long description
+                    // Handle failure to fetch deadline
                     findViewById<TextView>(R.id.deadlineTextView).text = "Failed to fetch deadline"
                 }
         }
     }
 
+    // Fetch long description from Firestore based on group name
     private fun fetchLongDescription(groupName: String?) {
         if (groupName != null) {
             firestore.collection("groups")
@@ -95,6 +99,7 @@ class GroupDetailsActivity : AppCompatActivity() {
                     if (!documents.isEmpty) {
                         val longDescription = documents.documents[0].getString("longDescription")
                         if (longDescription != null) {
+                            // Display long description in TextView
                             findViewById<TextView>(R.id.longDescriptionTextView).text = "Long Description: $longDescription"
                         } else {
                             // Handle case where long description is null

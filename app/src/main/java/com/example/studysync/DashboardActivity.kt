@@ -13,16 +13,20 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class DashboardActivity : AppCompatActivity() {
 
+    // UI elements
     private lateinit var groupRecyclerView: RecyclerView
     private lateinit var groupAdapter: GroupAdapter
     private lateinit var noGroupTextView: TextView
 
     // Footer icons
-    private lateinit var dashboardIcon: ImageButton // Dashboard
-    private lateinit var plusIcon: ImageButton // Create Groups
-    private lateinit var profileIcon: ImageButton // User Profile
+    private lateinit var dashboardIcon: ImageButton
+    private lateinit var plusIcon: ImageButton
+    private lateinit var profileIcon: ImageButton
 
+    // Firebase Firestore instance
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    // List to hold groups
     private var groupList: MutableList<Group> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,27 +37,21 @@ class DashboardActivity : AppCompatActivity() {
         groupRecyclerView = findViewById(R.id.groupRecyclerView)
         noGroupTextView = findViewById(R.id.noGroupTextView)
 
-        // Footer icons navigation initialization
+        // Footer icons initialization
         dashboardIcon = findViewById(R.id.dashboardIcon)
         plusIcon = findViewById(R.id.plusIcon)
         profileIcon = findViewById(R.id.profileIcon)
 
-        // Footer icons navigation click listeners
-        // - Dashboard Navigation
+        // Set click listeners for footer icons
         dashboardIcon.setOnClickListener {
-            // Start DashboardActivity
             startActivity(Intent(this, DashboardActivity::class.java))
         }
 
-        // - Create Group Navigation
         plusIcon.setOnClickListener {
-            // Start CreateGroupActivity
             startActivity(Intent(this, CreateGroupActivity::class.java))
         }
 
-        // - Create Group Navigation
         profileIcon.setOnClickListener {
-            // Start CreateGroupActivity
             startActivity(Intent(this, UserProfileActivity::class.java))
         }
 
@@ -72,6 +70,7 @@ class DashboardActivity : AppCompatActivity() {
         fetchGroupData()
     }
 
+    // Function to fetch group data from Firestore
     private fun fetchGroupData() {
         firestore.collection("groups")
             .get()
