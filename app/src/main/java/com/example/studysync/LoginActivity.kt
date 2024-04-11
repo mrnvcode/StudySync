@@ -132,7 +132,7 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("FacebookSignIn", "signInWithCredential:success")
                     val user = auth.currentUser
-                    navigateToDashboard()
+                    navigateToProfileInformationActivity()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("FacebookSignIn", "signInWithCredential:failure", task.exception)
@@ -162,7 +162,7 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("GoogleSignIn", "signInWithCredential:success")
                     val user = auth.currentUser
-                    navigateToDashboard()
+                    navigateToProfileInformationActivity()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("GoogleSignIn", "signInWithCredential:failure", task.exception)
@@ -173,6 +173,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToDashboard() {
         val intent = Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+        finish() // Close the LoginActivity so that the user cannot go back to it after logging in
+    }
+
+    private fun navigateToProfileInformationActivity() {
+        val intent = Intent(this, ProfileInformationActivity::class.java)
         startActivity(intent)
         finish() // Close the LoginActivity so that the user cannot go back to it after logging in
     }

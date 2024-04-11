@@ -86,7 +86,7 @@ class RegistrationActivity : AppCompatActivity() {
                     // Registration successful
                     val user = auth.currentUser
                     // Handle the successful registration, navigate to MainActivity, etc.
-                    navigateToDashboard()
+                    navigateToProfileInformationActivity()
                 } else {
                     // Registration failed
                     Log.w("Registration", "createUserWithEmail:failure", task.exception)
@@ -96,8 +96,8 @@ class RegistrationActivity : AppCompatActivity() {
             }
     }
 
-    private fun navigateToDashboard() {
-        val intent = Intent(this, DashboardActivity::class.java)
+    private fun navigateToProfileInformationActivity() {
+        val intent = Intent(this, ProfileInformationActivity::class.java)
         startActivity(intent)
         finish() // Close the RegistrationActivity so that the user cannot go back to it after registering
     }
@@ -135,7 +135,7 @@ class RegistrationActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    navigateToDashboard()
+                    navigateToProfileInformationActivity()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -188,7 +188,7 @@ class RegistrationActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    navigateToDashboard()
+                    navigateToProfileInformationActivity()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)

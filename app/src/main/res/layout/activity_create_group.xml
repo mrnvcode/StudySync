@@ -13,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="#8CF2B5D4"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical">
+        android:layout_alignParentTop="true">
 
         <!-- Logo: StudySync -->
         <TextView
@@ -53,39 +52,85 @@
         android:layout_below="@id/headerLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Find Study Group"
+        android:text="Create Study Group"
         android:textColor="#90E3F4"
         android:textSize="28sp"
         android:textStyle="bold" />
 
-    <!-- No Group TextView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/groupRecyclerView"
-        android:layout_width="390dp"
-        android:layout_height="594dp"
+    <!-- Group Name -->
+    <EditText
+        android:id="@+id/groupNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/mainHeading"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Group Name"
+        android:minHeight="48dp" />
 
-    <!-- Footer -->
+    <!-- Short Description -->
+    <EditText
+        android:id="@+id/shortDescriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groupNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Short Description (Max 50 words)"
+        android:maxLines="2"
+        android:minHeight="48dp" />
 
-    <TextView
-        android:id="@+id/noGroupTextView"
+    <!-- Long Description -->
+    <EditText
+        android:id="@+id/longDescriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shortDescriptionEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Long Description (Max 120 words)"
+        android:maxLines="4"
+        android:minHeight="48dp" />
+
+    <!-- Major Topics -->
+    <EditText
+        android:id="@+id/topicsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longDescriptionEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Major Topics (up to 3, separated by commas)"
+        android:minHeight="48dp" />
+
+    <!-- Joining Deadline -->
+    <EditText
+        android:id="@+id/deadlineEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topicsEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Joining Deadline"
+        android:minHeight="48dp" />
+
+    <!-- Create Group Button -->
+    <Button
+        android:id="@+id/createGroupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="624dp"
-        android:text="No active group available. Go to create group to create one."
-        android:textColor="#000000"
-        android:textSize="18sp" />
+        android:layout_below="@id/deadlineEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Create Group" />
 
+    <!-- Footer -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footerLayout"
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-1dp"
         android:background="#B2F7EF">
 
         <!-- Dashboard Icon -->
@@ -93,15 +138,17 @@
             android:id="@+id/dashboardIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_dashboard"
-            android:tint="#F2B5D4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_dashboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#F2B5D4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <!-- Add Group Icon -->
+        <!-- Plus Icon -->
 
         <!-- Chat Icon -->
 
@@ -113,22 +160,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_plus"
-            app:layout_constraintStart_toEndOf="@id/dashboardIcon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dashboardIcon"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="#F2B5D4" />
+            app:layout_constraintVertical_bias="0.428"
+            app:tint="#F2B5D4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/profileIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_profile"
-            android:tint="#F2B5D4"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
+            app:tint="#F2B5D4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

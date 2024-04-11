@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/group_border">
 
     <TextView
         android:id="@+id/groupNameTextView"
-        android:layout_width="380dp"
-        android:layout_height="38dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -18,14 +19,14 @@
     <TextView
         android:id="@+id/groupDescriptionTextView"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:textColor="#333333"
         android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="34dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
@@ -40,7 +41,7 @@
         <TextView
             android:id="@+id/majorTopicsTextView"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="#333333"
             android:textSize="14sp" />
@@ -65,23 +66,12 @@
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/pingButton"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:background="#009688"
-            android:text="Ping"
-            android:textColor="#FFFFFF"
-            tools:ignore="TextContrastCheck" />
-
-        <Button
             android:id="@+id/messageButton"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="#FF5722"
-            android:text="Message"
+            android:text="Send Email"
             android:textColor="#FFFFFF"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 

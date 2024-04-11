@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    tools:context=".CreateGroupActivity">
+    android:background="#FFFFFF">
 
     <!-- Header -->
     <RelativeLayout
@@ -13,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="#8CF2B5D4"
-        android:layout_alignParentTop="true"
         android:gravity="center_vertical">
 
         <!-- Logo: StudySync -->
@@ -53,34 +51,54 @@
         android:layout_below="@id/headerLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Find Study Group"
+        android:text="User Profile"
         android:textColor="#90E3F4"
         android:textSize="28sp"
         android:textStyle="bold" />
 
-    <!-- No Group TextView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/groupRecyclerView"
-        android:layout_width="390dp"
-        android:layout_height="594dp"
-        android:layout_below="@id/mainHeading"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-    <!-- Footer -->
-
+    <!-- Second Heading -->
     <TextView
-        android:id="@+id/noGroupTextView"
+        android:id="@+id/secondHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="624dp"
-        android:text="No active group available. Go to create group to create one."
+        android:layout_below="@id/mainHeading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Hello, Brilliant"
         android:textColor="#000000"
         android:textSize="18sp" />
 
+    <!-- Profile Information Button -->
+    <Button
+        android:id="@+id/profileInfoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Information"
+        android:layout_below="@id/secondHeading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Manage Groups Button -->
+    <Button
+        android:id="@+id/manageGroupsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage Groups"
+        android:layout_below="@id/profileInfoButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Sign Out Button -->
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:layout_below="@id/manageGroupsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Footer -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footerLayout"
         android:layout_width="match_parent"
@@ -93,13 +111,15 @@
             android:id="@+id/dashboardIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_dashboard"
-            android:tint="#F2B5D4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_dashboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#F2B5D4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <!-- Add Group Icon -->
 
@@ -111,24 +131,30 @@
             android:id="@+id/plusIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_plus"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/dashboardIcon"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="#F2B5D4" />
+            app:layout_constraintVertical_bias="0.428"
+            app:tint="#F2B5D4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/profileIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_profile"
-            android:tint="#F2B5D4"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
+            app:tint="#F2B5D4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
